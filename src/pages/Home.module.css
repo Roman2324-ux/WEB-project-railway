@@ -1,0 +1,82 @@
+.page {
+  min-height: 100vh;
+  background: #f5f7fa;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+.hero {
+  background: linear-gradient(135deg, #003087 0%, #0057b7 60%, #005bbb 100%);
+  color: #fff;
+  padding: 48px 20px 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.uaFlag {
+  font-size: 24px;
+}
+
+.logoText {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.heading {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+  font-family: "Georgia", serif;
+}
+
+.subheading {
+  font-size: 16px;
+  opacity: 0.8;
+  margin: 0;
+  max-width: 480px;
+}
+
+.heroBg {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 160px;
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+}
+
+.main {
+  max-width: 1100px;
+  margin: -24px auto 0;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 32px 16px 48px;
+  }
+  .heroBg {
+    font-size: 80px;
+  }
+}
