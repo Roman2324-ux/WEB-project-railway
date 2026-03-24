@@ -1,0 +1,116 @@
+.page {
+  min-height: 100vh;
+  background: #f5f7fa;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Top bar */
+.topBar {
+  background: #fff;
+  border-bottom: 1px solid #ebebeb;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.back {
+  background: none;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #555;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.back:hover {
+  border-color: #0057b7;
+  color: #0057b7;
+}
+
+.topTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+/* Banner */
+.banner {
+  background: linear-gradient(135deg, #003087 0%, #0057b7 100%);
+  color: #fff;
+  padding: 24px 24px 28px;
+}
+
+.bannerInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bannerRoute {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.bannerCity {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-family: "Georgia", serif;
+}
+
+.bannerArrow {
+  font-size: 22px;
+  opacity: 0.6;
+}
+
+.bannerMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* Main layout */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  align-items: start;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  position: sticky;
+  top: 80px;
+}
+
+@media (max-width: 860px) {
+  .main {
+    grid-template-columns: 1fr;
+    padding: 20px 16px 48px;
+  }
+
+  .right {
+    position: static;
+  }
+
+  .bannerCity {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,76 @@
+.toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  font-size: 15px;
+  font-weight: 600;
+  max-width: 380px;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.success {
+  background: #1b5e20;
+  color: #fff;
+}
+
+.error {
+  background: #b71c1c;
+  color: #fff;
+}
+
+.icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.msg {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+
+.close:hover {
+  color: #fff;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(24px); }
+}
+
+.in  { animation-name: slideIn; }
+.out { animation-name: slideOut; }
+
+@media (max-width: 600px) {
+  .toast {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    max-width: none;
+  }
+}

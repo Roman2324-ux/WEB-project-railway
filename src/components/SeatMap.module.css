@@ -1,0 +1,162 @@
+.wrapper {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+
+.placeholder {
+  text-align: center;
+  padding: 48px 20px;
+  color: #aaa;
+  background: #f9f9f9;
+  border-radius: 16px;
+  border: 2px dashed #e0e0e0;
+  margin-bottom: 32px;
+}
+
+.placeholder span {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.placeholder p {
+  font-size: 14px;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #555;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.dot.free    { background: #c8e6c9; border: 2px solid #43a047; }
+.dot.selected{ background: #bbdefb; border: 2px solid #1976d2; }
+.dot.booked  { background: #ffcdd2; border: 2px solid #e53935; }
+
+/* Wagon shell */
+.wagon {
+  background: #f5f7fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 16px 12px 20px;
+  overflow-x: auto;
+}
+
+.wagonHead {
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 12px;
+  padding-left: 8px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 280px;
+}
+
+/* One row */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rowNum {
+  font-size: 11px;
+  color: #bbb;
+  width: 20px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.seatGroup {
+  display: flex;
+  gap: 5px;
+}
+
+.aisle {
+  width: 20px;
+  flex-shrink: 0;
+}
+
+/* Individual seat */
+.seat {
+  width: 40px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.seat:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.seatEmpty {
+  width: 40px;
+  height: 36px;
+}
+
+/* Seat status colours */
+.seat.free {
+  background: #c8e6c9;
+  border-color: #43a047;
+  color: #1b5e20;
+}
+
+.seat.selected {
+  background: #1976d2;
+  border-color: #0d47a1;
+  color: #fff;
+}
+
+.seat.booked {
+  background: #ffcdd2;
+  border-color: #e53935;
+  color: #b71c1c;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Summary */
+.summary {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #555;
+  background: #e8f0fb;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+.summary strong {
+  color: #0057b7;
+}
