@@ -64,14 +64,22 @@ export default function TrainCard({ train, onBook }) {
             {isSoldOut ? "🔴 Квитки відсутні" : `🟢 ${train.availableSeats} місць`}
           </span>
         </div>
-        <button
-          className={styles.bookBtn}
-          style={{ background: isSoldOut ? "#ccc" : accentColor }}
-          disabled={isSoldOut}
-          onClick={() => onBook && onBook(train)}
-        >
-          {isSoldOut ? "Немає місць" : "Обрати місця →"}
-        </button>
+
+        <div className={styles.priceRow}>
+          {train.price && (
+            <span className={styles.price}>
+              від <strong>{train.price} ₴</strong>
+            </span>
+          )}
+          <button
+            className={styles.bookBtn}
+            style={{ background: isSoldOut ? "#ccc" : accentColor }}
+            disabled={isSoldOut}
+            onClick={() => onBook && onBook(train)}
+          >
+            {isSoldOut ? "Немає місць" : "Обрати місця →"}
+          </button>
+        </div>
       </div>
     </div>
   );
