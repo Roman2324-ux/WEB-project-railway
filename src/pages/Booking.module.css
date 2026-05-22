@@ -114,3 +114,32 @@
     font-size: 20px;
   }
 }
+
+.priceBox {
+  background: #f0f7ff;
+  border: 1px solid #cce0ff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #444;
+  padding: 4px 0;
+}
+
+.priceTotal {
+  border-top: 1px solid #cce0ff;
+  margin-top: 8px;
+  padding-top: 10px;
+  font-size: 16px;
+  color: #0057b7;
+}
+
+.priceTotal strong {
+  font-size: 20px;
+}

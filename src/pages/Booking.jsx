@@ -11,7 +11,7 @@ import styles from "./Booking.module.css";
 export default function Booking() {
   const { trainId } = useParams();
   const navigate = useNavigate();
-  const { chooseTrain, selectedTrain } = useBooking();
+  const { chooseTrain, selectedSeats, totalPrice } = useBooking();
   const [toast, setToast] = useState(null);
 
   const train = trains.find((t) => t.id === Number(trainId));
@@ -47,7 +47,6 @@ export default function Booking() {
 
   return (
     <div className={styles.page}>
-      {/* Top bar */}
       <header className={styles.topBar}>
         <button className={styles.back} onClick={() => navigate("/")}>
           ← Назад
@@ -55,7 +54,6 @@ export default function Booking() {
         <span className={styles.topTitle}>Бронювання квитків</span>
       </header>
 
-      {/* Train info banner */}
       <div className={styles.banner}>
         <div className={styles.bannerInner}>
           <div className={styles.bannerRoute}>
@@ -72,13 +70,28 @@ export default function Booking() {
         </div>
       </div>
 
-      {/* Main content */}
       <main className={styles.main}>
         <div className={styles.left}>
           <WagonSelector train={train} />
           <SeatMap />
         </div>
         <div className={styles.right}>
+          {selectedSeats.length > 0 && totalPrice > 0 && (
+            <div className={styles.priceBox}>
+              <div className={styles.priceRow}>
+                <span>Місць обрано:</span>
+                <strong>{selectedSeats.length}</strong>
+              </div>
+              <div className={styles.priceRow}>
+                <span>Ціна за місце:</span>
+                <strong>{train.price} ₴</strong>
+              </div>
+              <div className={`${styles.priceRow} ${styles.priceTotal}`}>
+                <span>До сплати:</span>
+                <strong>{totalPrice} ₴</strong>
+              </div>
+            </div>
+          )}
           <BookingForm onSuccess={handleSuccess} />
         </div>
       </main>

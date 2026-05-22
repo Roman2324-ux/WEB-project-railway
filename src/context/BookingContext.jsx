@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useMemo } from "react";
 
 const BookingContext = createContext(null);
 
@@ -32,12 +32,18 @@ export function BookingProvider({ children }) {
     setSelectedSeats([]);
   }
 
+  const totalPrice = useMemo(() => {
+    if (!selectedTrain?.price || selectedSeats.length === 0) return 0;
+    return selectedTrain.price * selectedSeats.length;
+  }, [selectedTrain, selectedSeats]);
+
   return (
     <BookingContext.Provider
       value={{
         selectedTrain,
         selectedWagon,
         selectedSeats,
+        totalPrice,
         chooseTrain,
         chooseWagon,
         toggleSeat,
