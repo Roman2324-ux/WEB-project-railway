@@ -1,0 +1,53 @@
+.page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.icon {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.code {
+  font-size: 96px;
+  font-weight: 800;
+  color: #0057b7;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.message {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+
+.sub {
+  font-size: 15px;
+  color: #888;
+  margin-bottom: 28px;
+}
+
+.btn {
+  background: #0057b7;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #004499;
+}
