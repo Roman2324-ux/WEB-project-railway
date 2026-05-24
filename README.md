@@ -1,16 +1,123 @@
-# React + Vite
+# WEB-project Railway — Онлайн-бронювання залізничних квитків
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Веб-застосунок для перегляду розкладу поїздів, вибору місць та бронювання квитків онлайн.  
+> Реалізовано в рамках лабораторних робіт №9–10 з дисципліни «Веб на стороні клієнта».
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Огляд
 
-## React Compiler
+Застосунок імітує сервіс Укрзалізниці — користувач може переглянути список рейсів,
+відфільтрувати за типом поїзда, обрати вагон, вибрати конкретні місця на схемі,
+заповнити форму пасажира та підтвердити бронювання.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Функціонал
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Головна сторінка
+- Список рейсів із пошуком за маршрутом або номером поїзда
+- Фільтрація за типом: Інтерсіті+, Швидкісний, Пасажирський, Нічний
+- Перемикач «Тільки з місцями»
+- Сортування за ціною (↑↓), часом відправлення та тривалістю
+- Відображення ціни квитка на кожній картці рейсу
+
+### Сторінка бронювання
+- Вибір вагону з різною кількістю місць залежно від типу:
+  - Купе — 36 місць
+  - Плацкарт — 54 місця
+  - СВ — 18 місць
+  - Сидячий — 60 місць
+- Інтерактивна схема місць (вільні / зайняті / обрані)
+- Підрахунок загальної вартості в реальному часі
+- Форма пасажира з валідацією (ім'я, телефон, email)
+- Підтвердження перед скасуванням вибору місць
+- Toast-сповіщення після успішного бронювання
+
+### Мої бронювання
+- Перелік усіх збережених броней з деталями
+- Відображення маршруту, вагону, місць, пасажира та суми
+- Можливість очистити всю історію бронювань
+
+### Навігація
+- Navbar зі посиланнями на розклад та мої бронювання
+- Підсвітка активного маршруту
+- Сторінка 404 для невідомих URL
+
+---
+
+## Технології
+
+| Технологія | Призначення |
+
+| React 18 | UI-бібліотека, компонентний підхід |
+| Vite | Збірник, dev-сервер |
+| React Router DOM v6 | Клієнтська маршрутизація |
+| Context API + useMemo | Глобальний стан бронювання |
+| CSS Modules | Ізольовані стилі компонентів |
+| localStorage | Збереження бронювань |
+
+---
+
+## Запуск проекту
+
+### Передумови
+- Node.js версії 18 або новіше
+- npm або yarn
+
+### Встановлення та запуск
+
+```bash
+# 1. Клонувати репозиторій
+git clone https://github.com/Roman2324-ux/WEB-project-railway.git
+
+# 2. Перейти в папку проекту
+cd WEB-project-railway
+
+# 3. Встановити залежності
+npm install
+
+# 4. Запустити dev-сервер
+npm run dev
+```
+
+Застосунок буде доступний за адресою: **http://localhost:5173**
+
+### Збірка для продакшну
+
+```bash
+npm run build
+```
+
+---
+
+## Структура проекту
+WEB-project-railway/
+├── public/
+│ └── favicon.svg
+├── src/
+│ ├── assets/ # Зображення та іконки
+│ ├── components/ # UI-компоненти
+│ │ ├── Navbar.jsx # Навігаційна панель
+│ │ ├── TrainCard.jsx # Картка рейсу
+│ │ ├── TrainList.jsx # Список рейсів з фільтрами
+│ │ ├── WagonSelector.jsx # Вибір вагону
+│ │ ├── SeatMap.jsx # Схема місць
+│ │ ├── BookingForm.jsx # Форма пасажира
+│ │ └── Toast.jsx # Сповіщення
+│ ├── context/
+│ │ └── BookingContext.jsx # Глобальний стан + підрахунок ціни
+│ ├── data/
+│ │ └── trains.js # Статичні дані про рейси
+│ ├── pages/
+│ │ ├── Home.jsx # Головна сторінка
+│ │ ├── Booking.jsx # Сторінка бронювання
+│ │ ├── MyBookings.jsx # Мої бронювання
+│ │ └── NotFound.jsx # Сторінка 404
+│ ├── services/
+│ │ └── BookingService.js # Робота з localStorage
+│ ├── App.jsx # Кореневий компонент + маршрути
+│ └── main.jsx # Точка входу
+├── index.html
+├── package.json
+└── vite.config.js
