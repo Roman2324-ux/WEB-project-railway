@@ -3,19 +3,35 @@ import styles from "./WagonSelector.module.css";
 
 const WAGON_TYPES = ["Купе", "Плацкарт", "СВ", "Сидячий"];
 
+const SEATS_BY_TYPE = {
+  "Купе": 36,
+  "Плацкарт": 54,
+  "СВ": 18,
+  "Сидячий": 60,
+};
+
 export default function WagonSelector({ train }) {
   const { selectedWagon, chooseWagon } = useBooking();
 
-  // Generate wagon list based on train.wagons count
-  const wagons = Array.from({ length: train.wagons }, (_, i) => ({
-    number: i + 1,
-    type: WAGON_TYPES[i % WAGON_TYPES.length],
-    seats: 36,
-  }));
+  const wagons = Array.from({ length: train.wagons }, (_, i) => {
+    const type = WAGON_TYPES[i % WAGON_TYPES.length];
+    return {
+      number: i + 1,
+      type,
+      seats: SEATS_BY_TYPE[type],
+    };
+  });
 
   return (
     <div className={styles.wrapper}>
       <h3 className={styles.title}>Оберіть вагон</h3>
+      <div className={styles.legend}>
+        {Object.entries(SEATS_BY_TYPE).map(([type, seats]) => (
+          <span key={type} className={styles.legendItem}>
+            <strong>{type}</strong> — {seats} місць
+          </span>
+        ))}
+      </div>
       <div className={styles.list}>
         {wagons.map((wagon) => (
           <button

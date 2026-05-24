@@ -59,3 +59,18 @@
   font-size: 11px;
   color: #999;
 }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.legendItem {
+  font-size: 12px;
+  color: #666;
+  background: #f3f4f6;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
