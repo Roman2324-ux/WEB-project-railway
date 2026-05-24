@@ -114,3 +114,21 @@
   cursor: not-allowed;
   transform: none;
 }
+
+.resetBtn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  background: none;
+  border: 2px solid #ffcdd2;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c62828;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.resetBtn:hover {
+  background: #ffebee;
+}

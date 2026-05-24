@@ -26,8 +26,15 @@ export default function BookingForm({ onSuccess }) {
   function handleChange(e) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    // Clear error on change
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: undefined }));
+  }
+
+  function handleReset() {
+    if (window.confirm("Скасувати вибір? Всі обрані місця буде знято.")) {
+      resetBooking();
+      setForm({ name: "", phone: "", email: "" });
+      setErrors({});
+    }
   }
 
   function handleSubmit(e) {
@@ -39,7 +46,6 @@ export default function BookingForm({ onSuccess }) {
     }
 
     setLoading(true);
-    // Simulate slight async delay (mock API)
     setTimeout(() => {
       const booking = saveBooking({
         trainId: selectedTrain.id,
@@ -143,6 +149,16 @@ export default function BookingForm({ onSuccess }) {
         >
           {loading ? "Бронюємо…" : "Підтвердити бронювання →"}
         </button>
+
+        {canSubmit && (
+          <button
+            type="button"
+            className={styles.resetBtn}
+            onClick={handleReset}
+          >
+            Скасувати вибір
+          </button>
+        )}
       </form>
     </div>
   );
