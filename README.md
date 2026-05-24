@@ -92,6 +92,7 @@ npm run build
 ---
 
 ## Структура проекту
+```
 WEB-project-railway/
 ├── public/
 │ └── favicon.svg
@@ -121,3 +122,4 @@ WEB-project-railway/
 ├── index.html
 ├── package.json
 └── vite.config.js
+```
